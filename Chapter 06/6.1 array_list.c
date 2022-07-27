@@ -18,11 +18,11 @@ void init(ArrayListType* L) {
 }
 
 int is_empty(ArrayListType* L) {
-	return (L->size == 0);
+	return L->size == 0;
 }
 
 int is_full(ArrayListType* L) {
-	return (L->size == MAX_LIST_SIZE);
+	return L->size == MAX_LIST_SIZE;
 }
 
 element get_entry(ArrayListType* L, int pos) {
@@ -31,14 +31,15 @@ element get_entry(ArrayListType* L, int pos) {
 }
 
 void print_list(ArrayListType* L) {
-	for (int i = 0; i < L->size; i++) {
-		printf("%d->", L->array[i]);
-	}
+	int i;
+	for (i = 0; i < L->size; i++)
+		printf("%d -> ", L->array[i]);
 	printf("\n");
 }
 
 void insert_last(ArrayListType* L, element item) {
-	if (L->size >= MAX_LIST_SIZE) error("List Overflow Error.\n");
+	if (L->size >= MAX_LIST_SIZE)
+		error("List Overflow Error.\n");
 	L->array[L->size++] = item;
 }
 
@@ -54,12 +55,13 @@ void insert(ArrayListType* L, int pos, element item) {
 element delete(ArrayListType* L, int pos) {
 	element item;
 
-	if (pos < 0 || pos >-L->size)
+	if (pos < 0 || pos >= L->size)
 		error("Position Error.\n");
 	item = L->array[pos];
 	for (int i = pos; i < (L->size - 1); i++)
 		L->array[i] = L->array[i + 1];
 	L->size--;
+	
 	return item;
 }
 
@@ -67,11 +69,17 @@ int main(void) {
 	ArrayListType list;
 
 	init(&list);
-	insert(&list, 0, 10); print_list(&list);
-	insert(&list, 0, 20); print_list(&list);
-	insert(&list, 0, 30); print_list(&list);
-	insert_last(&list, 40); print_list(&list);
-	delete(&list, 0);		print_list(&list);
-
+	insert(&list, 0, 10);		print_list(&list);
+	insert(&list, 0, 20);		print_list(&list);
+	insert(&list, 0, 30);		print_list(&list);
+	insert_last(&list, 40);	print_list(&list);
+	delete(&list, 0);			print_list(&list);
+	
 	return 0;
 }
+// output
+// 10 ->
+// 20 -> 10 ->
+// 30 -> 20 -> 10 ->
+// 30 -> 20 -> 10 -> 40 ->
+// 20 -> 10 -> 40 ->
