@@ -16,7 +16,7 @@ void error(char *message) {
 	exit(1);
 }
 
-ListNode *insert_first(ListNode *head, element value) {
+ListNode* insert_first(ListNode *head, element value) {
 	ListNode *p = (ListNode *)malloc(sizeof(ListNode));
 	p->data = value;
 	p->link = head;
