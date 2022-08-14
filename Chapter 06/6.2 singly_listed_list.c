@@ -13,7 +13,7 @@ void error(char *message) {
 }
 
 ListNode *insert_first(ListNode *head, int value) {
-	ListNode* p = (ListNode *)malloc(sizeof(ListNode));
+	ListNode *p = (ListNode *)malloc(sizeof(ListNode));
 	p->data = value;
 	p->link = head;
 	head = p;
