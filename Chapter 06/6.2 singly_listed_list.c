@@ -12,7 +12,7 @@ void error(char *message) {
 	exit(1);
 }
 
-ListNode *insert_first(ListNode *head, int value) {
+ListNode* insert_first(ListNode *head, int value) {
 	ListNode *p = (ListNode *)malloc(sizeof(ListNode));
 	p->data = value;
 	p->link = head;
@@ -20,7 +20,7 @@ ListNode *insert_first(ListNode *head, int value) {
 	return head;
 }
 
-ListNode *insert(ListNode *head, ListNode *pre, element value) {
+ListNode* insert(ListNode *head, ListNode *pre, element value) {
 	ListNode *p = (ListNode *)malloc(sizeof(ListNode));
 	p->data = value;
 	p->link = pre->link;
@@ -28,7 +28,7 @@ ListNode *insert(ListNode *head, ListNode *pre, element value) {
 	return head;
 }
 
-ListNode *delete_first(ListNode *head) {
+ListNode* delete_first(ListNode *head) {
 	ListNode *removed;
 	if (head == NULL) return NULL;
 	removed = head;
@@ -37,7 +37,7 @@ ListNode *delete_first(ListNode *head) {
 	return head;
 }
 
-ListNode *delete(ListNode *head, ListNode *pre) {
+ListNode* delete(ListNode *head, ListNode *pre) {
 	ListNode *removed;
 	removed = pre->link;
 	pre->link = removed->link;
