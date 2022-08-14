@@ -8,16 +8,16 @@ typedef struct {
 
 typedef struct ListNode {
 	element data;
-	struct ListNode* link;
+	struct ListNode *link;
 } ListNode;
 
-void error(char* message) {
+void error(char *message) {
 	fprintf(stderr, "%s\n", message);
 	exit(1);
 }
 
-ListNode* insert_first(ListNode* head, element value) {
-	ListNode* p = (ListNode*)malloc(sizeof(ListNode));
+ListNode *insert_first(ListNode *head, element value) {
+	ListNode *p = (ListNode *)malloc(sizeof(ListNode));
 	p->data = value;
 	p->link = head;
 	head = p;
@@ -25,14 +25,14 @@ ListNode* insert_first(ListNode* head, element value) {
 	return head;
 }
 
-void print_list(ListNode* head) {
-	for (ListNode* p = head; p != NULL; p = p->link)
+void print_list(ListNode *head) {
+	for (ListNode *p = head; p != NULL; p = p->link)
 		printf("%s -> ", p->data.name);
 	printf("NULL \n");
 }
 
 int main(void) {
-	ListNode* head = NULL;
+	ListNode *head = NULL;
 	element data;
 
 	strcpy(data.name, "MintChocolate");
