@@ -12,3 +12,5 @@ Chapter 4 - Stack
 Chapter 5 - Queue
 
 Chapter 6 - Linked List 1
+
+cHAPTER 7 - Linked List 2
